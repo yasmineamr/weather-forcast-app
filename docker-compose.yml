@@ -1,0 +1,15 @@
+services:
+  weatherapp-backend:
+    container_name: weather-app
+    image: weatherapp-api
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - 5000:5000
+    networks:
+      - backend_network
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
