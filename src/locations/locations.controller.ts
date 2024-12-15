@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Delete, Body, Param, HttpStatus, HttpException, ValidationPipe } from '@nestjs/common';
+import { Controller, Get, Post, Delete, Body, Param, ValidationPipe } from '@nestjs/common';
 import { LocationsService } from './locations.service';
 import { AddLocationDto } from './dtos/AddLocation.dto';
 
@@ -12,9 +12,8 @@ export class LocationsController {
     }
 
     @Post()
-    addLocation(@Body(ValidationPipe)  addLocationdDto: AddLocationDto) {
-        if(addLocationdDto.city == "") throw new HttpException('Bad Request', HttpStatus.BAD_REQUEST);
-        return this.LocationsService.saveLocation(addLocationdDto.city);
+    addLocation(@Body(ValidationPipe) addLocationdDto: AddLocationDto) {
+        return this.LocationsService.saveLocation(addLocationdDto);
     }
 
     @Delete(':id')

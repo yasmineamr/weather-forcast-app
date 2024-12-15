@@ -9,6 +9,6 @@ export class Location {
   @Column()
   city: string;
 
-  @ManyToOne(type => User)
+  @ManyToOne(() => User)
   user: User;
 }
