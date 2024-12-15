@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpException } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
 
@@ -11,11 +11,7 @@ export class AxiosService {
             const { data } = await firstValueFrom(this.httpService.get(url));
             return data;
         } catch (err) {
-            return {
-                status: err.status,
-                code: err.code,
-                message: err.message
-            };
+            throw new HttpException(err.message, err.status);
         }
     }
 }

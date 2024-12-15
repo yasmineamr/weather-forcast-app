@@ -20,9 +20,9 @@ services:
       - WEATHER_BASE_URL=http://api.weatherapi.com/v1
     networks:
       - backend_network
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+    # volumes:
+    #   - .:/usr/src/app
+    #   - /usr/src/app/node_modules
     restart: unless-stopped
     depends_on:
       - postgres

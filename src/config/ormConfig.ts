@@ -1,5 +1,6 @@
 import { configDotenv } from 'dotenv';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { join } from 'path';
 
 configDotenv();
 
@@ -11,7 +12,7 @@ export const PostgreSqlDataSource: TypeOrmModuleOptions = {
   password: process.env.PG_PASSWORD,
   database: process.env.PG_DB,
   schema: process.env.DB_SCHEMA,
-  entities: [],
+  entities: [join(process.cwd(), 'dist/**/*.entity.js')],
   autoLoadEntities: true,
   synchronize: true,
   logging: true,
