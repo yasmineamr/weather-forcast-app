@@ -2,7 +2,7 @@ import { Controller, Post, UseGuards, ValidationPipe, Body } from "@nestjs/commo
 import { AuthService } from "./auth.service";
 import { LocalAuthGuard } from './local-auth.guard';
 import { CreateUserDto } from "src/user/dtos/CreateUser.dto";
-import { LoginDto } from "./dtos/login.dto";
+import { LoginDto } from "./dtos/Login.dto";
 
 @Controller('auth')
 export class AuthController {
@@ -14,7 +14,7 @@ export class AuthController {
         return this.authService.login(loginDto);
     }
 
-    @Post()
+    @Post('signup')
     signup(@Body(ValidationPipe) createUserDto: CreateUserDto) {
         return this.authService.signup(createUserDto);
     }

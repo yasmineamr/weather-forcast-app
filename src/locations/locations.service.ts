@@ -11,17 +11,23 @@ export class LocationsService {
         private readonly locationRepository: Repository<Location>
     ) {}
 
-    getLocations() {
-        return this.locationRepository.find({
-            select: {
-              user: {
-                id: true,
-              }
-            },
-            relations: {
-              user: true,
-            }
-        });
+    getLocations(userId) {
+      console.log(userId)
+      return this.locationRepository.find({
+        where: {
+          user: {
+            id: userId
+          }
+        },
+        select: {
+          user: {
+            id: true,
+          }
+        },
+        relations: {
+          user: true,
+        }
+      });
     }
 
     async saveLocation(createLocationDto: AddLocationDto) {

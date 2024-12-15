@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "1335ccb0-65f8-4a95-b24e-9545897790a1",
+		"name": "WeatherApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:5000/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"ahosny21\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/auth/signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstname\": \"Salma\",\n    \"lastname\": \"Amr\",\n    \"username\": \"salooma\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/auth/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjM2LCJ1c2VybmFtZSI6Inlhc3NvIiwiaWF0IjoxNzM0Mjg3MTk2LCJleHAiOjE3MzQyOTA3OTZ9.hh8MoAewv0k_AJH1FtddTR2hFI0OjjwDqCq6QeLUsys",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/user",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjM2LCJ1c2VybmFtZSI6Inlhc3NvIiwiaWF0IjoxNzM0Mjg3MTk2LCJleHAiOjE3MzQyOTA3OTZ9.hh8MoAewv0k_AJH1FtddTR2hFI0OjjwDqCq6QeLUsys",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstname\": \"Mohamed\",\n    \"lastname\": \"Hossny\",\n    \"username\": \"mhossny\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/user/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjM2LCJ1c2VybmFtZSI6Inlhc3NvIiwiaWF0IjoxNzM0Mjg3MTk2LCJleHAiOjE3MzQyOTA3OTZ9.hh8MoAewv0k_AJH1FtddTR2hFI0OjjwDqCq6QeLUsys",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/user/1",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/locations",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjM3LCJ1c2VybmFtZSI6ImFob3NueTIxIiwiaWF0IjoxNzM0Mjg4Nzc2LCJleHAiOjE3MzQyOTIzNzZ9.P_7sHqfR7ycOeOAiWYfuZorSS-iNYRvopBAC7LuRV4M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"city\": \"Cairo\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/locations",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"locations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/locations",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjM3LCJ1c2VybmFtZSI6ImFob3NueTIxIiwiaWF0IjoxNzM0Mjg4Nzc2LCJleHAiOjE3MzQyOTIzNzZ9.P_7sHqfR7ycOeOAiWYfuZorSS-iNYRvopBAC7LuRV4M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/locations",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"locations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/locations",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjM2LCJ1c2VybmFtZSI6Inlhc3NvIiwiaWF0IjoxNzM0Mjg3MTk2LCJleHAiOjE3MzQyOTA3OTZ9.hh8MoAewv0k_AJH1FtddTR2hFI0OjjwDqCq6QeLUsys",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/locations/41",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"locations",
+						"41"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/weather/Paris",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjM2LCJ1c2VybmFtZSI6Inlhc3NvIiwiaWF0IjoxNzM0Mjg3MTk2LCJleHAiOjE3MzQyOTA3OTZ9.hh8MoAewv0k_AJH1FtddTR2hFI0OjjwDqCq6QeLUsys",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/weather/Paris",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"weather",
+						"Paris"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/forecast/Paris",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjM2LCJ1c2VybmFtZSI6Inlhc3NvIiwiaWF0IjoxNzM0Mjg3MTk2LCJleHAiOjE3MzQyOTA3OTZ9.hh8MoAewv0k_AJH1FtddTR2hFI0OjjwDqCq6QeLUsys",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/forecast/Paris",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"forecast",
+						"Paris"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

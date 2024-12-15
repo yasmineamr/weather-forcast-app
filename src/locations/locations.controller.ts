@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Delete, Body, Param, ValidationPipe, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Delete, Body, Param, ValidationPipe, UseGuards, Request } from '@nestjs/common';
 import { LocationsService } from './locations.service';
 import { AddLocationDto } from './dtos/AddLocation.dto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
@@ -9,13 +9,14 @@ export class LocationsController {
 
     @UseGuards(JwtAuthGuard)
     @Get()
-    getLocations() {
-        return this.LocationsService.getLocations();
+    getLocations(@Request() req: any) {
+        return this.LocationsService.getLocations(req?.user?.userId);
     }
 
     @UseGuards(JwtAuthGuard)
     @Post()
-    addLocation(@Body(ValidationPipe) addLocationdDto: AddLocationDto) {
+    addLocation(@Request() req: any, @Body(ValidationPipe) addLocationdDto: AddLocationDto) {
+        addLocationdDto.user = req?.user?.userId;
         return this.LocationsService.saveLocation(addLocationdDto);
     }
 

@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import { User } from 'src/user/entities/user.entity';
+import { Options } from '@nestjs/common';
 
 @Entity()
 export class Location {
@@ -9,6 +10,6 @@ export class Location {
   @Column()
   city: string;
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, { onDelete: 'CASCADE' })
   user: User;
 }

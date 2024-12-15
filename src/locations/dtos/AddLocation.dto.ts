@@ -11,7 +11,5 @@ export class AddLocationDto {
     @IsNotEmpty()
     city: string
 
-    @IsString()
-    @IsNotEmpty()
     user: User
 }
