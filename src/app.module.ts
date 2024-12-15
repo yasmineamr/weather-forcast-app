@@ -16,9 +16,19 @@ import { WeatherController } from './weather/weather.controller';
 import { WeatherService } from './weather/weather.service';
 import { AxiosModule } from './axios/axios.module';
 import { LocationsModule } from './locations/locations.module';
+import { GraphQLModule } from '@nestjs/graphql';
+import { join } from 'path';
+import { ApolloServer } from 'apollo-server-express';
+import { AuthModule } from './auth/auth.module';
+import { JwtService } from '@nestjs/jwt';
 
 @Module({
   imports: [
+    // GraphQLModule.forRoot({
+    //   autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+    //   sortSchema: true,
+    //   driver: ApolloServer
+    // }),
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: `.env`,
@@ -29,6 +39,7 @@ import { LocationsModule } from './locations/locations.module';
       host: 'redis',
       port: 6379,
     }),
+    AuthModule,
     UserModule,
     WeatherModule,
     ForecastModule,
@@ -37,7 +48,7 @@ import { LocationsModule } from './locations/locations.module';
     TypeOrmModule.forRoot(PostgreSqlDataSource)
   ],
   exports: [ConfigModule],
-  controllers: [AppController, AuthController, WeatherController],
-  providers: [AppService, AuthService, WeatherService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
