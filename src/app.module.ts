@@ -16,9 +16,9 @@ import { WeatherController } from './weather/weather.controller';
 import { WeatherService } from './weather/weather.service';
 import { AxiosModule } from './axios/axios.module';
 import { LocationsModule } from './locations/locations.module';
-import { GraphQLModule } from '@nestjs/graphql';
+// import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
-import { ApolloServer } from 'apollo-server-express';
+// import { ApolloServer } from 'apollo-server-express';
 import { AuthModule } from './auth/auth.module';
 import { JwtService } from '@nestjs/jwt';
 
