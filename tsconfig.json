@@ -6,7 +6,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "ES2021",
+    "target": "es5",
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
@@ -26,9 +26,9 @@
     // when they're updated a lot.
     "fallbackPolling": "dynamicPriority",
     // Don't coalesce watch notification
-    "synchronousWatchDirectory": true,
+    "synchronousWatchDirectory": true
     // Finally, two additional settings for reducing the amount of possible
     // files to track  work from these directories
-    "excludeDirectories": ["**/node_modules", "dist"]
+    // "excludeDirectories": ["**/node_modules", "dist"]
   }
 }
