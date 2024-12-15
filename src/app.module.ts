@@ -20,7 +20,7 @@ import * as redisStore from 'cache-manager-redis-store';
       host: 'redis',
       port: 6379,
     }),
-    TypeOrmModule.forRoot(PostgreSqlDataSource)
+    // TypeOrmModule.forRoot(PostgreSqlDataSource)
   ],
   exports: [ConfigModule],
   controllers: [AppController],

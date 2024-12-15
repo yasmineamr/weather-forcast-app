@@ -4,7 +4,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 configDotenv();
 
 export const PostgreSqlDataSource: TypeOrmModuleOptions = {
-  type: process.env.DB_TYPE
+  type: "postgres", // process.env.DB_TYPE,
   host: process.env.PG_HOST,
   port: parseInt(process.env.PG_PORT),
   username: process.env.PG_USER,
