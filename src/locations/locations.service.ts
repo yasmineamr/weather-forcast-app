@@ -12,7 +12,6 @@ export class LocationsService {
     ) {}
 
     getLocations(userId) {
-      console.log(userId)
       return this.locationRepository.find({
         where: {
           user: {

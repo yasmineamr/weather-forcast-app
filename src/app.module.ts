@@ -10,17 +10,11 @@ import { UserModule } from './user/user.module';
 import { WeatherModule } from './weather/weather.module';
 import { ForecastModule } from './forecast/forecast.module';
 import * as redisStore from 'cache-manager-redis-store';
-import { AuthController } from './auth/auth.controller';
-import { AuthService } from './auth/auth.service';
-import { WeatherController } from './weather/weather.controller';
-import { WeatherService } from './weather/weather.service';
 import { AxiosModule } from './axios/axios.module';
 import { LocationsModule } from './locations/locations.module';
-// import { GraphQLModule } from '@nestjs/graphql';
-import { join } from 'path';
-// import { ApolloServer } from 'apollo-server-express';
 import { AuthModule } from './auth/auth.module';
-import { JwtService } from '@nestjs/jwt';
+// import { GraphQLModule } from '@nestjs/graphql';
+// import { ApolloServer } from 'apollo-server-express';
 
 @Module({
   imports: [

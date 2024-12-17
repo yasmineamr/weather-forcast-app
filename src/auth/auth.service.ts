@@ -4,7 +4,6 @@ import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { CreateUserDto } from "src/user/dtos/CreateUser.dto";
 import { LoginDto } from './dtos/Login.dto';
-import { IS_STRONG_PASSWORD } from "class-validator";
 
 @Injectable({})
 export class AuthService {
