@@ -1,6 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
-import { User } from 'src/user/entities/user.entity';
-import { Options } from '@nestjs/common';
+import { User } from '../../user/entities/user.entity';
 
 @Entity()
 export class Location {
