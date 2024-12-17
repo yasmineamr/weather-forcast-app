@@ -1,99 +1,84 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Weather App
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Task Overview
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+This task involves setting up a backend application with Docker, implementing user authentication, and integrating caching for an external weather API.
 
-## Description
+## Instructions
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### 1. Clone the Repository
 
-## Project setup
+Start by cloning the repository to your local machine.
 
-```bash
-$ npm install
-```
 
-## Compile and run the project
+### 2. Set Up the Application
 
-```bash
-# development
-$ npm run start
+You will be using Docker to build and run the application. Follow these steps:
 
-# watch mode
-$ npm run start:dev
+- **Build the Docker images:**
 
-# production mode
-$ npm run start:prod
-```
+  ```bash
+  docker-compose build
+  ```
 
-## Run tests
+- **Start the application:**
 
-```bash
-# unit tests
-$ npm run test
+  ```bash
+  docker-compose up
+  ```
 
-# e2e tests
-$ npm run test:e2e
+### 3. Running Tests
 
-# test coverage
-$ npm run test:cov
-```
+To run the test cases for the application, use the following commands:
 
-## Deployment
+- **Enter the container as the root user:**
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+  ```bash
+  docker exec -it -u 0 nest-app /bin/sh
+  ```
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+- **Run the test case for the user controller:**
 
-```bash
-$ npm install -g mau
-$ mau deploy
-```
+  ```bash
+  npm test /src/user/user.controller.spec.ts
+  ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## API Endpoints
+All endpoints are found in the repo in a postman collection.
+To start using the endpoints, you need to create a new account first:
 
-## Resources
+### 1. Create a New User
+- **Endpoint**: `POST localhost:5000/auth/signup`
+- **Description**: Creates a new user account.
 
-Check out a few resources that may come in handy when working with NestJS:
+### 2. Login
+- **Endpoint**: `POST localhost:5000/auth/login`
+- **Description**: Logs in a user and returns a token.
+- **Request**: The body should include a `username` and `password`.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### 3. Use the Token for Authenticated Requests
+- After logging in, you will receive a token in the response.
+- Add this token to the `Authorization` header in subsequent requests to access protected routes.
 
-## Support
+## Improvements & Future Enhancements
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+There are several improvements that I wanted to implement but didn't have time to complete:
 
-## Stay in touch
+1. **Rate Limiting with Redis**  
+   Implement Redis-based caching for rate limiting.
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+2. **Expand Test Coverage**  
+   While I've added test cases for the user controller, additional tests should be written for other application parts.
 
-## License
+3. **Weather API Caching with TTL**  
+   Implement a TTL for weather API responses, caching data until the end of the day, after which it expires.  
+   - Only the temperature data would be cached, not the entire weather API response.
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+4. **Validation and Error Handling**  
+   Improve validation and error handling for all API endpoint payloads and query parameters.
+
+5. **Environment Variables**  
+   Move from direct `process.env` access to using a configuration file to define all environment variables.
+
+6. **GraphQL Integration**  
+   Add a GraphQL layer to allow flexible querying of user and weather data.
