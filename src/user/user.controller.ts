@@ -1,7 +1,7 @@
 import { Controller, Get, Delete, Patch, Body, Param, ValidationPipe, UseGuards } from '@nestjs/common';
 import { UserService } from './user.service';
 import { UpdateUserDto } from './dtos/UpdateUser.dto';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('user')
 export class UserController {
