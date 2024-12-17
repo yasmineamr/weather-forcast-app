@@ -1,26 +1,22 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-
 import { ConfigModule} from '@nestjs/config';
-import { PostgreSqlDataSource } from './config/ormConfig';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CacheModule } from '@nestjs/cache-manager';
+import { ThrottlerModule } from '@nestjs/throttler';
+
+import * as redisStore from 'cache-manager-redis-store';
+
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { AxiosModule } from './axios/axios.module';
+import { PostgreSqlDataSource } from './config/ormConfig';
 import { UserModule } from './user/user.module';
 import { WeatherModule } from './weather/weather.module';
 import { ForecastModule } from './forecast/forecast.module';
-import * as redisStore from 'cache-manager-redis-store';
-import { AuthController } from './auth/auth.controller';
-import { AuthService } from './auth/auth.service';
-import { WeatherController } from './weather/weather.controller';
-import { WeatherService } from './weather/weather.service';
-import { AxiosModule } from './axios/axios.module';
 import { LocationsModule } from './locations/locations.module';
-// import { GraphQLModule } from '@nestjs/graphql';
-import { join } from 'path';
-// import { ApolloServer } from 'apollo-server-express';
 import { AuthModule } from './auth/auth.module';
-import { JwtService } from '@nestjs/jwt';
+// import { GraphQLModule } from '@nestjs/graphql';
+// import { ApolloServer } from 'apollo-server-express';
 
 @Module({
   imports: [
@@ -39,6 +35,10 @@ import { JwtService } from '@nestjs/jwt';
       host: 'redis',
       port: 6379,
     }),
+    ThrottlerModule.forRoot([{
+      ttl: 60000, // in milliseconds
+      limit: 10,
+    }]),
     AuthModule,
     UserModule,
     WeatherModule,
