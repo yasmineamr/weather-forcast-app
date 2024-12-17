@@ -2,7 +2,7 @@
 FROM node:18-alpine
 
 # Set the working directory in the container
-WORKDIR /usr/src/app
+WORKDIR /usr/app
 
 # Copy application dependency manifests to the container image
 COPY package*.json ./
